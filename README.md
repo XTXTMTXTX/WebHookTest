@@ -9,7 +9,7 @@ WebHookOutput:
 ``` php
 <?php
   error_reporting(1);
-  $secret = "onedayanapple";
+  $secret = "secret";
   $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
   echo shell_exec("date | sudo tee /var/www/html/LastRequestDate.txt && echo \"(UTC/GMT+08:00)\" | sudo tee -a /var/www/html/LastRequestDate.txt");
   if ($signature) {
@@ -26,7 +26,7 @@ WebHookOutput:
   exit('Error Request');
 ?>
 
-```  
+```
 ``` php
 <?php
   header ("Content-type: image/png");
@@ -58,4 +58,4 @@ WebHookOutput:
   imagepng($bg);
   imagedestroy($bg);
 ?>
-```  
+```
