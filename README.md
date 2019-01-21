@@ -1,28 +1,29 @@
 # WebHookTest
 
 LastUpdateDate:   
-[![LastUpdateDate](https://cvm.xtxtmtxtx.xyz/LastUpdateDate.php)](https://cvm.xtxtmtxtx.xyz/LastUpdateDate.php)  
+[![LastUpdateDate](https://www.xtxtmtxtx.xyz/cvm/LastUpdateDate.php)](https://cvm.xtxtmtxtx.xyz/LastUpdateDate.php)  
 LastRequestDate:   
-[![LastRequestDate](https://cvm.xtxtmtxtx.xyz/LastRequestDate.php)](https://cvm.xtxtmtxtx.xyz/LastRequestDate.php)  
+[![LastRequestDate](https://www.xtxtmtxtx.xyz/cvm/LastRequestDate.php)](https://cvm.xtxtmtxtx.xyz/LastRequestDate.php)  
 WebHookOutput:   
-[![WebHookOutput](https://cvm.xtxtmtxtx.xyz/WebHookOutput.php)](https://cvm.xtxtmtxtx.xyz/WebHookOutput.php)  
+[![WebHookOutput](https://www.xtxtmtxtx.xyz/cvm/WebHookOutput.php)](https://cvm.xtxtmtxtx.xyz/WebHookOutput.php)  
+
 ``` php
 <?php
   error_reporting(1);
   $secret = "secret";
   $signature = $_SERVER['HTTP_X_HUB_SIGNATURE'];
-  echo shell_exec("date | sudo tee /var/www/html/LastRequestDate.txt && echo \"(UTC/GMT+08:00)\" | sudo tee -a /var/www/html/LastRequestDate.txt");
+  echo shell_exec("date | sudo tee LastRequestDate.txt && echo \"(UTC/GMT+08:00)\" | sudo tee -a LastRequestDate.txt");
   if ($signature) {
     $hash = "sha1=".hash_hmac('sha1', file_get_contents("php://input"), $secret);
     if (strcmp($signature, $hash) != 0) {
       shell_exec("echo \"Wrong Signature\" 2>&1 | sudo tee /var/www/html/WebHookOutput.txt");
       exit('Wrong Signature');
     }
-    shell_exec("date | sudo tee /var/www/html/LastUpdateDate.txt && echo \"(UTC/GMT+08:00)\" | sudo tee -a /var/www/html/LastUpdateDate.txt");
-    echo shell_exec("cd /var/www/html/WebHookTest && sudo git pull 2>&1 | sudo tee /var/www/html/WebHookOutput.txt");
+    shell_exec("date | sudo tee LastUpdateDate.txt && echo \"(UTC/GMT+08:00)\" | sudo tee -a LastUpdateDate.txt");
+    echo shell_exec("cd WebHookTest && sudo git pull 2>&1 | sudo tee ../WebHookOutput.txt");
     exit('Updated');
   }
-  shell_exec("echo \"Error Request\" 2>&1 | sudo tee /var/www/html/WebHookOutput.txt");
+  shell_exec("echo \"Error Request\" 2>&1 | sudo tee WebHookOutput.txt");
   exit('Error Request');
 ?>
 
@@ -46,7 +47,7 @@ WebHookOutput:
     }
     return $content;
   }
-  $file_path = "/var/www/html/OutputFile.txt";
+  $file_path = "OutputFile.txt";
   if(file_exists($file_path))$text = file_get_contents($file_path);
   else $text="Error";
   $text = autowrap(12, 0, "/usr/share/fonts/Hack/Hack-Bold.ttf", $text, 300);
