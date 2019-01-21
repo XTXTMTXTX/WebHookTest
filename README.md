@@ -50,9 +50,9 @@ WebHookOutput:
   $file_path = "OutputFile.txt";
   if(file_exists($file_path))$text = file_get_contents($file_path);
   else $text="Error";
-  $text = autowrap(12, 0, "/usr/share/fonts/Hack/Hack-Bold.ttf", $text, 300);
+  $text = autowrap(12, 0, "/usr/share/fonts/Hack/Hack-Bold.ttf", $text, 600);
   $rows = 1 + strval(substr_count($text, "\n"));
-  $bg = imagecreate(300, 21 * $rows);
+  $bg = imagecreate(600, 21 * $rows);
   imagecolorallocate($bg, 0xFF, 0xFF, 0xFF);
   $black = imagecolorallocate($bg, 0x00, 0x00, 0x00);
   imagettftext($bg, 12, 0, 0, 21, $black, "/usr/share/fonts/Hack/Hack-Bold.ttf", $text);
