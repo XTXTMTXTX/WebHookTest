@@ -1,11 +1,11 @@
 # WebHookTest
 
 LastUpdateDate:   
-[![LastUpdateDate](https://www.xtxtmtxtx.xyz/cvm/LastUpdateDate.php)](https://cvm.xtxtmtxtx.xyz/LastUpdateDate.php)  
+[![LastUpdateDate](https://cvm.xtxtmtxtx.xyz/LastUpdateDate.php)](https://cvm.xtxtmtxtx.xyz/LastUpdateDate.php)  
 LastRequestDate:   
-[![LastRequestDate](https://www.xtxtmtxtx.xyz/cvm/LastRequestDate.php)](https://cvm.xtxtmtxtx.xyz/LastRequestDate.php)  
+[![LastRequestDate](https://cvm.xtxtmtxtx.xyz/LastRequestDate.php)](https://cvm.xtxtmtxtx.xyz/LastRequestDate.php)  
 WebHookOutput:   
-[![WebHookOutput](https://www.xtxtmtxtx.xyz/cvm/WebHookOutput.php)](https://cvm.xtxtmtxtx.xyz/WebHookOutput.php)  
+[![WebHookOutput](https://cvm.xtxtmtxtx.xyz/WebHookOutput.php)](https://cvm.xtxtmtxtx.xyz/WebHookOutput.php)  
 
 ``` php
 <?php
